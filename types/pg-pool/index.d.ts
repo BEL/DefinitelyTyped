@@ -9,7 +9,7 @@ declare class Pool<T extends pg.Client> extends pg.Pool {
     connect(callback: (err?: Error, client?: T & pg.PoolClient, done?: (release?: any) => void) => void): void;
 
     on(event: "error", listener: (err: Error, client: T & pg.PoolClient) => void): this;
-    on(event: "connect" | "acquire" | "remove", listener: (client: T & pg.PoolClient) => void): this;
+    on(event: "connect" | "acquire" | "remove" | "release", listener: (client: T & pg.PoolClient) => void): this;
 }
 
 declare namespace Pool {
